@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<helpItems schema="maml">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
+    <command:details>
+      <command:name>Get-AcomArticle</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>AcomArticle</command:noun>
+      <maml:description>
+        <maml:para>The Get-AcomArticle cmdlet gets all ACOM articles (header and body) from the local branch that match the specified filter criteria.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Get-AcomArticle allows you to retrieve articles based on criteria such as staleness, author, title, etc.</maml:para>
+      <maml:para>By default, Get-AcomArticle displays a limited set of properties for ease-of-use: 
+      FileName, PageTitle, and PubDate.
+      </maml:para>
+      <maml:para>
+        However, Get-AcomArticle returns everything about an article (including all header fields and even the body of the article). To see the full set of properties returned, use:
+        PS C:\&gt; dir *.md | Get-AcomArticle | Get-Member -type properties.
+      </maml:para>
+      <maml:para>
+        To view article properties not displayed by default, simply use the Select-Object (or select) cmdlet:
+        PS C:\&gt; dir *.md | Get-AcomArticle | select FileName, PageTitle, PubDate, Author | fl
+      </maml:para>
+      <maml:para>
+        To see examples of how to use Get-AcomArticle, type:
+        PS C:\&gt; Get-Help Get-AcomArticle -examples
+      </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-AcomArticle</maml:name>
+        <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="1">
+          <maml:name>FileName</maml:name>
+          <command:parameterValue required="true">string</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" globbing="false" pipelineInput="false">
+          <maml:name>Author</maml:name>
+          <command:parameterValue required="true">string</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" globbing="false" pipelineInput="false">
+          <maml:name>Stale</maml:name>
+          <command:parameterValue required="true">boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" globbing="false" pipelineInput="false">
+          <maml:name>StaleWithin</maml:name>
+          <command:parameterValue required="true">int</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" globbing="false" pipelineInput="true" position="named">
+        <maml:name>FileName</maml:name>
+        <maml:description>
+          <maml:para>Name of ACOM MD file to process.</maml:para>
+        </maml:description>
+        <dev:type>string</dev:type>
+      </command:parameter>
+      <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
+        <maml:name>Stale</maml:name>
+        <maml:description>
+          <maml:para>Return article if article is stale (PubDate plus 90 days &lt; Today's date).</maml:para>
+        </maml:description>
+        <dev:type>string</dev:type>
+      </command:parameter>
+      <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
+        <maml:name>StaleWithin</maml:name>
+        <maml:description>
+          <maml:para>Return article if article is stale within the specified number of days.</maml:para>
+        </maml:description>
+        <dev:type>string</dev:type>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <!--Add input type information here-->
+    </command:inputTypes>
+    <command:returnValues>
+      <!--Add return value information here-->
+    </command:returnValues>
+    <maml:alertSet>
+      <!--Add Note information here-->
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>EXAMPLE: Get articles for a specific author</maml:title>
+        <dev:code>gci -r *.md | get-acomarticle -author "tarcher"</dev:code>
+      </command:example>
+      <command:example>
+        <maml:title>EXAMPLE: Get articles for a specific author where each article is stale</maml:title>
+        <dev:code>gci -r *.md | get-acomarticle -author "tarcher" -stale</dev:code>
+      </command:example>
+      <command:example>
+        <maml:title>EXAMPLE: Get articles for a specific author where each article is stale or will be stale within 14 days.</maml:title>
+        <dev:code>gci -r *.md | get-acomarticle -author "tarcher" -stalewithin 14</dev:code>
+      </command:example>
+      <command:example>
+        <maml:title>EXAMPLE: Get articles where title doesn't contain specific text.</maml:title>
+        <dev:code>gci -r *.md | get-acomarticle | where pagetitle -notlike "*| Microsoft Azure*"</dev:code>
+      </command:example>
+      <command:example>
+        <maml:title>EXAMPLE: Get author and count of articles where title doesn't contain specific text.</maml:title>
+        <dev:code>gci -r *.md | get-acomarticle | where pagetitle -notlike "*| Microsoft Azure*" | group author | sort count -desc</dev:code>
+      </command:example>
+      <command:example>
+        <maml:title>EXAMPLE: Get author and count of articles where body contain specific text.</maml:title>
+        <dev:code>gci -r *.md | get-acomarticle | where body -like "*preview portal*" | group author | sort count -desc</dev:code>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <!--Add links to related content here-->
+    </maml:relatedLinks>
+  </command:command>
+</helpItems>

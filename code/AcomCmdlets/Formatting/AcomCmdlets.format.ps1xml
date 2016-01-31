@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <ViewDefinitions>
+    <View>
+      <Name>Microsoft.AcomObjects.AcomArticle</Name>
+      <ViewSelectedBy>
+        <TypeName>Microsoft.AcomObjects.AcomArticle</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>File name</Label>
+                <PropertyName>FileName</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Title</Label>
+                <PropertyName>PageTitle</PropertyName>
+              </ListItem>
+              <ListItem>
+                <Label>Pub Date</Label>
+                <PropertyName>PubDate</PropertyName>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+  </ViewDefinitions>
+</Configuration> 

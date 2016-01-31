@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcomCmdlets", "AcomCmdlets\AcomCmdlets.csproj", "{C1B2A6F1-8171-4BAF-9669-A23F70FD95F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcomObjects", "AcomObjects\AcomObjects.csproj", "{E7032F67-0CB5-4430-8017-BBBCC4F4AABB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcomObjectsConsole", "AcomObjectsConsole\AcomObjectsConsole.csproj", "{3B529A0D-7391-4131-B3BC-7A9781156553}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1B2A6F1-8171-4BAF-9669-A23F70FD95F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1B2A6F1-8171-4BAF-9669-A23F70FD95F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1B2A6F1-8171-4BAF-9669-A23F70FD95F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1B2A6F1-8171-4BAF-9669-A23F70FD95F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7032F67-0CB5-4430-8017-BBBCC4F4AABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7032F67-0CB5-4430-8017-BBBCC4F4AABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7032F67-0CB5-4430-8017-BBBCC4F4AABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7032F67-0CB5-4430-8017-BBBCC4F4AABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B529A0D-7391-4131-B3BC-7A9781156553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B529A0D-7391-4131-B3BC-7A9781156553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B529A0D-7391-4131-B3BC-7A9781156553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B529A0D-7391-4131-B3BC-7A9781156553}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

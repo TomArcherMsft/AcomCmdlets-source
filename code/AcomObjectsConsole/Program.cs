@@ -16,7 +16,7 @@ namespace Microsoft.AcomObjectsConsole
             try
             {
                 //ProcessFile(@"C:\Users\tomar\Source\Repos\azure-content-pr\articles\vpn-gateway\vpn-gateway-about-forced-tunneling.md");
-                ProcessDirectory(@"c:\users\tomar\source\repos\azure-content-pr\articles");
+                ProcessDirectory(@"c:\users\tomar\source\repos\azure-content-pr\articles\multi-factor-authentication");
             }
             catch (Exception ex)
             {

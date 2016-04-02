@@ -78,6 +78,13 @@
         </maml:description>
         <dev:type>string</dev:type>
       </command:parameter>
+      <command:parameter required="false" globbing="false" pipelineInput="true" position="named">
+        <maml:name>Author</maml:name>
+        <maml:description>
+          <maml:para>Searches for the supplied string in the ms.author metadata element.</maml:para>
+        </maml:description>
+        <dev:type>string</dev:type>
+      </command:parameter>
       <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
         <maml:name>Stale</maml:name>
         <maml:description>

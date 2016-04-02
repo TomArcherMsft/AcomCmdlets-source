@@ -6,7 +6,7 @@
       <command:verb>Get</command:verb>
       <command:noun>AcomArticle</command:noun>
       <maml:description>
-        <maml:para>The Get-AcomArticle cmdlet gets all ACOM articles (header and body) from the local branch that match the specified filter criteria.</maml:para>
+        <maml:para>The Get-AcomArticle cmdlet gets all ACOM articles (header and body) from the specified directory (and its subdirectories) that match the supplied filter criteria.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -16,11 +16,11 @@
       </maml:para>
       <maml:para>
         However, Get-AcomArticle returns everything about an article (including all header fields and even the body of the article). To see the full set of properties returned, use:
-        PS C:\&gt; dir *.md | Get-AcomArticle | Get-Member -type properties.
+        PS C:\&gt; Get-AcomArticle [ArticleDirectory] | Get-Member -type properties
       </maml:para>
       <maml:para>
-        To view article properties not displayed by default, simply use the Select-Object (or select) cmdlet:
-        PS C:\&gt; dir *.md | Get-AcomArticle | select FileName, PageTitle, PubDate, Author | fl
+        To view article properties not displayed by default, simply use the Select-Object (or select) cmdlet. Ex:
+        PS C:\&gt; Get-AcomArticle [ArticleDirectory] | select FileName, PageTitle, PubDate, Author | fl
       </maml:para>
       <maml:para>
         To see examples of how to use Get-AcomArticle, type:
@@ -31,7 +31,18 @@
       <command:syntaxItem>
         <maml:name>Get-AcomArticle</maml:name>
         <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="1">
-          <maml:name>FileName</maml:name>
+          <maml:name>ArticleDirectory</maml:name>
+          <command:parameterValue required="true">string</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" globbing="false" pipelineInput="false">
+          <maml:name>Author</maml:name>
+          <command:parameterValue required="true">string</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-AcomArticle</maml:name>
+        <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="1">
+          <maml:name>ArticleDirectory</maml:name>
           <command:parameterValue required="true">string</command:parameterValue>
         </command:parameter>
         <command:parameter required="false" globbing="false" pipelineInput="false">
@@ -42,6 +53,17 @@
           <maml:name>Stale</maml:name>
           <command:parameterValue required="true">boolean</command:parameterValue>
         </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-AcomArticle</maml:name>
+        <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="1">
+          <maml:name>ArticleDirectory</maml:name>
+          <command:parameterValue required="true">string</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" globbing="false" pipelineInput="false">
+          <maml:name>Author</maml:name>
+          <command:parameterValue required="true">string</command:parameterValue>
+        </command:parameter>
         <command:parameter required="false" globbing="false" pipelineInput="false">
           <maml:name>StaleWithin</maml:name>
           <command:parameterValue required="true">int</command:parameterValue>
@@ -50,9 +72,9 @@
     </command:syntax>
     <command:parameters>
       <command:parameter required="true" globbing="false" pipelineInput="true" position="named">
-        <maml:name>FileName</maml:name>
+        <maml:name>ArticleDirectory</maml:name>
         <maml:description>
-          <maml:para>Name of ACOM MD file to process.</maml:para>
+          <maml:para>Directory name containing the ACOM articles (*.md) to process.</maml:para>
         </maml:description>
         <dev:type>string</dev:type>
       </command:parameter>
@@ -82,28 +104,28 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>EXAMPLE: Get articles for a specific author</maml:title>
-        <dev:code>gci -r *.md | get-acomarticle -author "tarcher"</dev:code>
+        <maml:title>EXAMPLE: Get articles for a specific author.</maml:title>
+        <dev:code>get-acomarticle . -author "tarcher"</dev:code>
       </command:example>
       <command:example>
         <maml:title>EXAMPLE: Get articles for a specific author where each article is stale</maml:title>
-        <dev:code>gci -r *.md | get-acomarticle -author "tarcher" -stale</dev:code>
+        <dev:code>get-acomarticle . -author "tarcher" -stale</dev:code>
       </command:example>
       <command:example>
         <maml:title>EXAMPLE: Get articles for a specific author where each article is stale or will be stale within 14 days.</maml:title>
-        <dev:code>gci -r *.md | get-acomarticle -author "tarcher" -stalewithin 14</dev:code>
+        <dev:code>get-acomarticle . -author "tarcher" -stalewithin 14</dev:code>
       </command:example>
       <command:example>
         <maml:title>EXAMPLE: Get articles where title doesn't contain specific text.</maml:title>
-        <dev:code>gci -r *.md | get-acomarticle | where pagetitle -notlike "*| Microsoft Azure*"</dev:code>
+        <dev:code>get-acomarticle . | where pagetitle -notlike "*| Microsoft Azure*"</dev:code>
       </command:example>
       <command:example>
         <maml:title>EXAMPLE: Get author and count of articles where title doesn't contain specific text.</maml:title>
-        <dev:code>gci -r *.md | get-acomarticle | where pagetitle -notlike "*| Microsoft Azure*" | group author | sort count -desc</dev:code>
+        <dev:code>get-acomarticle . | where pagetitle -notlike "*| Microsoft Azure*" | group author | sort count -desc</dev:code>
       </command:example>
       <command:example>
         <maml:title>EXAMPLE: Get author and count of articles where body contain specific text.</maml:title>
-        <dev:code>gci -r *.md | get-acomarticle | where body -like "*preview portal*" | group author | sort count -desc</dev:code>
+        <dev:code>get-acomarticle . | where body -like "*preview portal*" | group author | sort count -desc</dev:code>
       </command:example>
     </command:examples>
     <maml:relatedLinks>

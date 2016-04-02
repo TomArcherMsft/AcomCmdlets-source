@@ -42,24 +42,33 @@ namespace Microsoft.AcomCmdlets.Commands
         {
             if (this.FileName != null)
             {
-                AcomArticle article = new AcomArticle(this.FileName);
-
-                // Check author
-                if (this.Author != string.Empty && !article.Author.Contains(this.Author)) 
+                try
                 {
-                    return; // Failed author check; no need to go further.
-                }
+                    AcomArticle article = new AcomArticle(this.FileName);
 
-                // Check staleness
-                if (this.Stale || this.StaleWithin > 0)
-                {
-                    if (article.PubDate.AddDays(staleDays - this.StaleWithin) > DateTime.Now)
+                    // Check author
+                    if (this.Author != string.Empty && !article.Author.Contains(this.Author))
                     {
-                        return; // Article is fresh
+                        return; // Failed author check; no need to go further.
                     }
-                }
 
-                WriteObject(article);
+                    // Check staleness
+                    if (this.Stale || this.StaleWithin > 0)
+                    {
+                        if (article.PubDate.AddDays(staleDays - this.StaleWithin) > DateTime.Now)
+                        {
+                            return; // Article is fresh
+                        }
+                    }
+
+                    WriteObject(article);
+                }
+                catch(Exception ex) 
+                {
+                    StringBuilder error = new StringBuilder();
+                    error.AppendFormat("[{0}] : {1}", this.FileName, ex.Message);
+                    ThrowTerminatingError(new ErrorRecord(new Exception(error.ToString(), ex), AcomCmdlets.Resources.UnexpectedError, ErrorCategory.InvalidOperation, this));
+                }
             }
         }
     }

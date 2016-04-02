@@ -1,0 +1,9 @@
+C:\Users\tomar\Source\Repos\AcomCmdlets-source\code\AcomCmdlets\obj\Debug\AcomCmdlets.csprojResolveAssemblyReference.cache
+C:\Users\tomar\Source\Repos\AcomCmdlets-source\code\AcomCmdlets\obj\Debug\AcomCmdlets.Resources.Resources.resources
+C:\Users\tomar\Source\Repos\AcomCmdlets-source\code\AcomCmdlets\obj\Debug\AcomCmdlets.csproj.GenerateResource.Cache
+C:\Users\tomar\Source\Repos\AcomCmdlets-source\code\AcomCmdlets\bin\Debug\AcomCmdlets.dll
+C:\Users\tomar\Source\Repos\AcomCmdlets-source\code\AcomCmdlets\bin\Debug\AcomCmdlets.pdb
+C:\Users\tomar\Source\Repos\AcomCmdlets-source\code\AcomCmdlets\bin\Debug\AcomObjects.dll
+C:\Users\tomar\Source\Repos\AcomCmdlets-source\code\AcomCmdlets\bin\Debug\AcomObjects.pdb
+C:\Users\tomar\Source\Repos\AcomCmdlets-source\code\AcomCmdlets\obj\Debug\AcomCmdlets.dll
+C:\Users\tomar\Source\Repos\AcomCmdlets-source\code\AcomCmdlets\obj\Debug\AcomCmdlets.pdb

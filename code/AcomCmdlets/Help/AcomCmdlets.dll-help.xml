@@ -46,12 +46,12 @@
           <command:parameterValue required="true">string</command:parameterValue>
         </command:parameter>
         <command:parameter required="false" globbing="false" pipelineInput="false">
-          <maml:name>Author</maml:name>
-          <command:parameterValue required="true">string</command:parameterValue>
-        </command:parameter>
-        <command:parameter required="false" globbing="false" pipelineInput="false">
           <maml:name>Stale</maml:name>
           <command:parameterValue required="true">boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" globbing="false" pipelineInput="false">
+          <maml:name>Author</maml:name>
+          <command:parameterValue required="true">string</command:parameterValue>
         </command:parameter>
       </command:syntaxItem>
       <command:syntaxItem>
@@ -61,12 +61,12 @@
           <command:parameterValue required="true">string</command:parameterValue>
         </command:parameter>
         <command:parameter required="false" globbing="false" pipelineInput="false">
-          <maml:name>Author</maml:name>
-          <command:parameterValue required="true">string</command:parameterValue>
-        </command:parameter>
-        <command:parameter required="false" globbing="false" pipelineInput="false">
           <maml:name>StaleWithin</maml:name>
           <command:parameterValue required="true">int</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" globbing="false" pipelineInput="false">
+          <maml:name>Author</maml:name>
+          <command:parameterValue required="true">string</command:parameterValue>
         </command:parameter>
       </command:syntaxItem>
     </command:syntax>
@@ -75,6 +75,13 @@
         <maml:name>ArticleDirectory</maml:name>
         <maml:description>
           <maml:para>Directory name containing the ACOM articles (*.md) to process.</maml:para>
+        </maml:description>
+        <dev:type>string</dev:type>
+      </command:parameter>
+      <command:parameter required="false" globbing="false" pipelineInput="true" position="named">
+        <maml:name>Author</maml:name>
+        <maml:description>
+          <maml:para>Searches for the supplied string in the ms.author metadata element.</maml:para>
         </maml:description>
         <dev:type>string</dev:type>
       </command:parameter>

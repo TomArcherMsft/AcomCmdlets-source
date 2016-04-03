@@ -46,12 +46,12 @@
           <command:parameterValue required="true">string</command:parameterValue>
         </command:parameter>
         <command:parameter required="false" globbing="false" pipelineInput="false">
-          <maml:name>Author</maml:name>
-          <command:parameterValue required="true">string</command:parameterValue>
-        </command:parameter>
-        <command:parameter required="false" globbing="false" pipelineInput="false">
           <maml:name>Stale</maml:name>
           <command:parameterValue required="true">boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" globbing="false" pipelineInput="false">
+          <maml:name>Author</maml:name>
+          <command:parameterValue required="true">string</command:parameterValue>
         </command:parameter>
       </command:syntaxItem>
       <command:syntaxItem>
@@ -61,12 +61,12 @@
           <command:parameterValue required="true">string</command:parameterValue>
         </command:parameter>
         <command:parameter required="false" globbing="false" pipelineInput="false">
-          <maml:name>Author</maml:name>
-          <command:parameterValue required="true">string</command:parameterValue>
-        </command:parameter>
-        <command:parameter required="false" globbing="false" pipelineInput="false">
           <maml:name>StaleWithin</maml:name>
           <command:parameterValue required="true">int</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" globbing="false" pipelineInput="false">
+          <maml:name>Author</maml:name>
+          <command:parameterValue required="true">string</command:parameterValue>
         </command:parameter>
       </command:syntaxItem>
     </command:syntax>
